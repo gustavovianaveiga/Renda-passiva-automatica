@@ -7,3 +7,11 @@ hamburger.addEventListener('click', () => {
         hamburger.classList = 'hamburger hamburger--spin'
     }
 });
+//navbar
+
+function closenav() {
+    const nav = document.querySelector('nav');
+    nav.style.left = '-300px'
+}
+
+function opennav() {}
