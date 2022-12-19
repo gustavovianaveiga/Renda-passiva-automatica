@@ -14,4 +14,7 @@ function closenav() {
     nav.style.left = '-300px'
 }
 
-function opennav() {}
+function opennav() {
+    const nav = document.querySelector('nav');
+    nav.style.left = '0px'
+}

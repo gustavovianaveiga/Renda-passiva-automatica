@@ -27,7 +27,8 @@ nav {
     width: 135px;
     background: var(--primary-color);
     position: fixed;
-    left: 0px;
+    left: -300px;
+    transition: all .2s;
 }
 
 #alignnav {
@@ -81,4 +82,24 @@ img[alt=logout] {
 
 #navlinks a {
     color: var(--text-color)
+}
+
+#all {
+    width: 500px;
+    height: 600px;
+    border: 1px solid var(--primary-color);
+}
+
+#all input {
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+}
+
+#all input[type=button] {
+    width: 70px;
+    cursor: pointer;
+}
+
+#all input:focus-visible {
+    outline: none;
 }
