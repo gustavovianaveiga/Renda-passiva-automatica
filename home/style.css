@@ -3,12 +3,26 @@
     padding: 0;
 }
 
+*::-webkit-scrollbar {
+    background: var(--primary-color);
+    width: 5px;
+    height: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(82, 82, 82);
+    border-radius: 20px;
+}
+
 body,
 html {
     --primary-color: rgb(23, 23, 23);
     --secound-color: #0fff0f;
     --text-color: #e7e7e7;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 header {
@@ -17,9 +31,14 @@ header {
     background-color: var(--primary-color);
 }
 
-main {}
+main {
+    height: auto;
+}
 
-footer {}
+footer {
+    background-color: var(--primary-color);
+    height: 120px;
+}
 
 nav {
     z-index: 999;
@@ -37,6 +56,11 @@ nav {
 
 #alignheader {
     width: 97%;
+    height: inherit
+}
+
+#alignfooter {
+    height: inherit
 }
 
 #null {
@@ -85,21 +109,17 @@ img[alt=logout] {
 }
 
 #all {
-    width: 500px;
+    border-radius: 15px;
+    margin: 20px;
+    width: 1100px;
     height: 600px;
-    border: 1px solid var(--primary-color);
+    -webkit-box-shadow: 0px 0px 31px -4px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 0px 31px -4px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 0px 31px -4px rgba(0, 0, 0, 0.45);
 }
 
-#all input {
-    border: 1px solid var(--primary-color);
-    border-radius: 12px;
-}
-
-#all input[type=button] {
-    width: 70px;
-    cursor: pointer;
-}
-
-#all input:focus-visible {
-    outline: none;
+#all section {
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
 }

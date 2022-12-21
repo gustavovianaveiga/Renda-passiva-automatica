@@ -12,7 +12,7 @@
 
 </head>
 
-<body>
+<body class="">
     <nav id="navbar" class="flex  items-center justify-center">
         <div id="alignnav" class="flex flex-col items-center justify-between">
             <div id="null"></div>
@@ -46,12 +46,17 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <div id="all">
-            <input type="text" value="PETR4" id="fieldbusca" />
-            <input type="button" value="Buscar" onClick="buscarcodigo()">
+        <div id="all" class="flex flex-row">
+            <section id="graphic">
+                <canvas id="myChart"></canvas>
+            </section>
+            <section></section>
         </div>
     </main>
-    <footer></footer>
+    <footer class="flex items-center justify-center">
+        <div id="alignfooter" class="flex justify-between"></div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script src="bolsa.js"></script>
 </body>
