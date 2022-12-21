@@ -1,10 +1,16 @@
-function buscarcodigo() {
-    fetch('https://brapi.dev/api/quote/' + document.querySelector('#fieldbusca').value).then(resposta => {
+//function buscarcodigo() {
+fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=PETR4&size=15&sort=dataPagamento,desc').then(resposta => {
         return resposta.json()
     }).then(function(corpo) {
-        const results = corpo.results[0];
-        const quantidadedesejada = document.querySelector('#quantidadedesejada').value;
-        const precoDeTodasAcoes = results.regularMarketPrice * quantidadedesejada;
-        return console.log(results.regularMarketPrice)
+
+        let value = 0
+
+        for (let i = 0; i < corpo.length; i++) {
+            value = parseFloat(corpo[i].valor) + value
+        }
+        console.log("a PETR4 pagou R$" + value.toFixed(2) + " no ultimo ano");
+        console.log("cerca de R$" + (value / 12).toFixed(2) + " por mês");
+        console.log(corpo);
+
     })
-}
+    //}
