@@ -132,18 +132,48 @@ img[alt=logout] {
 
 #stockfooter {
     background: rgb(56, 56, 56);
-    height: 200px;
-    width: 100px;
+    height: auto;
+    padding: 10px;
+    width: 112px;
     color: var(--text-color);
+}
+
+#searchicon {
+    width: 24px;
+    height: 24px;
+    filter: invert(90%);
+    cursor: pointer;
+}
+
+header input:focus-visible {
+    outline: none;
+}
+
+header input {
+    margin-right: 10px;
+    border: 1px solid var(--text-color);
+    background: transparent;
+    border-radius: 12px;
+    color: var(--text-color);
+    padding: 10px;
+    height: 30px;
+}
+
+.display-none {
+    display: none
 }
 
 #stockheader {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 40px;
-    width: 300px;
+    width: 560px;
     color: var(--text-color);
     background: rgb(27, 27, 27);
+}
+
+.headernomes {
+    width: 120px;
 }
 
 #stockfooter:nth-last-child(1) {
@@ -164,4 +194,24 @@ img[alt=logout] {
     height: 12px;
     margin-left: 2px;
     cursor: pointer;
+}
+
+#busca {
+    width: 150px;
+    height: 30px;
+    border: 1px solid var(--primary-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px;
+}
+
+#buscarbutton {
+    cursor: pointer;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid var(--primary-color);
+    height: 30px;
+    width: 150px;
+    color: var(--text-color);
+    background: var(--primary-color);
 }
