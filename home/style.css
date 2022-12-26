@@ -134,7 +134,7 @@ img[alt=logout] {
     background: rgb(56, 56, 56);
     height: auto;
     padding: 10px;
-    width: 112px;
+    width: 141.5px;
     color: var(--text-color);
 }
 
@@ -167,13 +167,13 @@ header input {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 40px;
-    width: 560px;
+    width: 849px;
     color: var(--text-color);
     background: rgb(27, 27, 27);
 }
 
 .headernomes {
-    width: 120px;
+    width: 142px;
 }
 
 #stockfooter:nth-last-child(1) {
