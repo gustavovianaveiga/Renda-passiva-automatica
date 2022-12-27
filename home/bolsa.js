@@ -59,7 +59,7 @@ function buscar() {
             fetch('https://fintz.herokuapp.com/api/b3/' + acaoorfii + '/' + ticketbusca + "/indicadores").then(resposta => {
                 return resposta.json()
             }).then(function(corpo2) {
-                if (acaoorfii == 'fiis') {} else { DY.innerHTML = parseFloat(corpo2.dy).toFixed(2) + "%" }
+                if (acaoorfii == 'fiis') {} else { DY.innerHTML = (parseFloat(corpo2.dy) * 100).toFixed(2) + "%" }
                 if (corpo2.pvp === undefined) {
                     pvptext.innerHTML = "FIIs";
                     pvptext.style.color = "#c1c1c1"
