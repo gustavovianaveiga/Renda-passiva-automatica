@@ -18,9 +18,9 @@
             <div id="null"></div>
 
             <div id="navlinks" class="flex items-center justify-between flex-col">
-                <a href="">home</a>
-                <a href="">ajuda</a>
-                <a href="">configurações</a>
+                <a href="" style="display: none;">home</a>
+                <a href="" style="display: none;">ajuda</a>
+                <a href="" style="display: none;">configurações</a>
                 <a href="logout.php"><img src="https://img.freepik.com/icones-gratis/sair_318-926141.jpg?auto=format&h=200" alt="logout"></a>
             </div>
             <div id="navbuttonnav" onClick="closenav()">
@@ -48,7 +48,7 @@
         </div>
     </header>
     <main class="flex items-center justify-center">
-        <div id="all" class="flex flex-col">
+        <div id="all" class="flex flex-col items-center ">
 
             <div id="stock" class="flex flex-col">
                 <div id="stockheader" class="flex  justify-around items-center">
@@ -62,10 +62,10 @@
                         <h3>Preço atual</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
                     </div>
                     <div class="flex items-center justify-center headernomes">
-                        <h3>DY</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
+                        <h3>DY a.m</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
                     </div>
                     <div class="flex items-center justify-center headernomes">
-                        <h3>Media de dividendo</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
+                        <h3>Dividendos a.m</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
                     </div>
                     <div class="flex items-center justify-center headernomes">
                         <h3>Data</h3><img src="https://cdn-icons-png.flaticon.com/512/130/130898.png" alt="" class="display-none">
@@ -101,9 +101,20 @@
                     </div>
                 </div>
             </div>
-            <div id="objetivo">
-                <input type="text" placeholder="Renda mensal desejada" value="1500" id="rendadesejada">
-                <h3 id="numerodeativonecessario"></h3>
+            <div class="flex justify-between" id="width">
+                <div id="objetivo">
+                    <input type="text" placeholder="Renda mensal desejada" value="" id="rendadesejada">
+                    <h3 id="numerodeativonecessario">Nº de acao necessária: 0</h3>
+                    <h3 id="valordeativonecessario">Valor necessário: R$0
+                    </h3>
+                </div>
+                <div id="pvp">
+                    <div class="flex items-center justify-center flex-col">
+                        <h3>P/VP</h3>
+                        <h3 id="pvptext">0</h3>
+                    </div>
+                </div>
+                <div id="null2" style="width: 330px;"></div>
             </div>
 
         </div>

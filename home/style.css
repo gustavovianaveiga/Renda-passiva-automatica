@@ -16,9 +16,9 @@
 
 body,
 html {
-    --primary-color: rgb(23, 23, 23);
-    --secound-color: #0fff0f;
-    --text-color: #e7e7e7;
+    --primary-color: rgb(27, 27, 27);
+    --secound-color: rgb(56, 56, 56);
+    --text-color: #c1c1c1;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -71,6 +71,7 @@ nav {
 img[alt=logout] {
     width: 20px;
     filter: invert(90%);
+    margin-left: 6px;
 }
 
 #navbuttonheader {
@@ -128,6 +129,7 @@ img[alt=logout] {
     height: auto;
     width: auto;
     border-radius: 15px;
+    margin: 30px;
 }
 
 #stockfooter {
@@ -145,7 +147,8 @@ img[alt=logout] {
     cursor: pointer;
 }
 
-header input:focus-visible {
+header input:focus-visible,
+#rendadesejada:focus-visible {
     outline: none;
 }
 
@@ -168,8 +171,8 @@ header input {
     border-top-right-radius: 15px;
     height: 40px;
     width: 849px;
-    color: var(--text-color);
-    background: rgb(27, 27, 27);
+    color: #cbcbcb;
+    background: var(--primary-color);
 }
 
 .headernomes {
@@ -213,5 +216,56 @@ header input {
     height: 30px;
     width: 150px;
     color: var(--text-color);
+    background: var(--primary-color);
+}
+
+#rendadesejada {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 12px;
+    padding: 15px;
+    height: 20px;
+    width: 95%;
+    margin: 5px;
+    margin-bottom: 0px;
+}
+
+#objetivo {
+    color: var(--text-color);
+    background: var(--secound-color);
+    width: 210px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#width {
+    width: 850px;
+}
+
+#numerodeativonecessario {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+#valordeativonecessario {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+#pvp {
+    background: var(--secound-color);
+    width: 210px;
+    border-radius: 12px;
+    display: flex;
+    color: var(--text-color);
+    align-items: center;
+}
+
+#pvp div {
+    margin: 5px;
+    width: 70px;
+    border-radius: 12px;
     background: var(--primary-color);
 }
