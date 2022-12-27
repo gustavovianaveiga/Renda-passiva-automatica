@@ -136,7 +136,7 @@ img[alt=logout] {
     background: rgb(56, 56, 56);
     height: auto;
     padding: 10px;
-    width: 141.5px;
+    width: 150.5px;
     color: var(--text-color);
 }
 
@@ -170,7 +170,7 @@ header input {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     height: 40px;
-    width: 849px;
+    width: 903px;
     color: #cbcbcb;
     background: var(--primary-color);
 }
@@ -241,11 +241,19 @@ header input {
 }
 
 #width {
-    width: 850px;
+    width: 900px;
 }
 
 #numerodeativonecessario {
     margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+#pvptext,
+#vpatext,
+#roetext,
+#pltext,
+#lpatext {
     font-size: 0.9rem;
 }
 
@@ -256,7 +264,7 @@ header input {
 
 #pvp {
     background: var(--secound-color);
-    width: 210px;
+    width: 370px;
     border-radius: 12px;
     display: flex;
     color: var(--text-color);
@@ -268,4 +276,12 @@ header input {
     width: 70px;
     border-radius: 12px;
     background: var(--primary-color);
+}
+
+#aleatorio {
+    filter: invert(80%);
+    width: 21px;
+    height: 16px;
+    margin-left: 2px;
+    cursor: pointer;
 }

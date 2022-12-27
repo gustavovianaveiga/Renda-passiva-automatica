@@ -10,6 +10,10 @@ function buscar() {
     const pvptext = document.querySelector('#pvptext');
     const valordeativonecessario = document.querySelector('#valordeativonecessario');
     const rendadesejada = document.querySelector('#rendadesejada').value;
+    const vpatext = document.querySelector('#vpatext');
+    const roetext = document.querySelector('#roetext');
+    const pltext = document.querySelector('#pltext');
+    const lpatext = document.querySelector('#lpatext');
     let acaoorfii = ""
     if (ticketbusca[4] == "1") { acaoorfii = "fiis" } else { acaoorfii = "acoes" }
     fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=' +
@@ -45,19 +49,51 @@ function buscar() {
             const ativosnecessariosresult = (rendadesejada / media).toFixed(0)
             numerodeativonecessario.innerHTML = "Nº de " + corpo[0].categoria + " necessária: " + ativosnecessariosresult
             valordeativonecessario.innerHTML = "Valor necessário: R$" + (ativosnecessariosresult * corpo2.preco).toFixed(0)
-            DY.innerHTML = ((media * 100) / corpo2.preco).toFixed(2) + "%"
+            if ((((media * 100) / corpo2.preco).toFixed(2)) === Infinity) { DY.innerHTML = "0%" } else {
+                DY.innerHTML = ((media * 100) / corpo2.preco).toFixed(2) + "%"
+            }
             fetch('https://fintz.herokuapp.com/api/b3/' + acaoorfii + '/' + ticketbusca + "/indicadores").then(resposta => {
                 return resposta.json()
             }).then(function(corpo2) {
                 if (acaoorfii == 'fiis') {} else { DY.innerHTML = parseFloat(corpo2.dy).toFixed(2) + "%" }
-                if (corpo2.pvp === undefined) { pvptext.innerHTML = "0" } else { pvptext.innerHTML = "   " + corpo2.pvp }
+                if (corpo2.pvp === undefined) {
+                    pvptext.innerHTML = "FIIs";
+                    pvptext.style.color = "#c1c1c1"
+                } else { pvptext.innerHTML = "   " + corpo2.pvp }
+                if (parseFloat(corpo2.pvp) >= 1) {
+                    pvptext.style.color = "#007400";
+                    vpatext.style.color = "#007400";
 
-                if (parseFloat(corpo2.pvp) >= 1) { pvptext.style.color = "#007400" }
-                if (parseFloat(corpo2.pvp) < 1) { pvptext.style.color = "#d9c800" }
-                if (parseFloat(pvptext.innerHTML) < 0.79) { pvptext.style.color = "#bd0000" }
+                }
+                if (parseFloat(corpo2.pvp) < 1) {
+                    pvptext.style.color = "#d9c800";
+                    vpatext.style.color = "#d9c800";
 
+                }
+                if (parseFloat(pvptext.innerHTML) < 0.79) {
+                    pvptext.style.color = "#bd0000";
+                    vpatext.style.color = "#bd0000";
 
+                }
+
+                if (corpo2.vpa === undefined) { vpatext.innerHTML = "FIIs" } else { vpatext.innerHTML = "   " + corpo2.vpa }
+                if (corpo2.vpa === undefined) { roetext.innerHTML = "FIIs" } else { roetext.innerHTML = "   " + (corpo2.roe * 100).toFixed(2) + "%" }
+                if (corpo2.vpa === undefined) { pltext.innerHTML = "FIIs" } else { pltext.innerHTML = "   " + corpo2.pl }
+                if (corpo2.vpa === undefined) { lpatext.innerHTML = "FIIs" } else { lpatext.innerHTML = "   " + corpo2.lpa }
             })
         })
     })
+}
+
+function random() {
+    const randomValue = Math.floor(Math.random() * 2000);
+
+    console.log(fetch('http://fintz.herokuapp.com/api/b3/proventos?&size=5000').then(resposta => {
+        return resposta.json()
+    }).then(function(corpo2) {
+        const ticketbusca = document.querySelector('#ticketbusca');
+        const ativoaleatorio = corpo2[randomValue].ticker
+        ticketbusca.value = ativoaleatorio
+        console.log(ativoaleatorio)
+    }))
 }
