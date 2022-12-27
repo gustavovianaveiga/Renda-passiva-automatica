@@ -290,3 +290,8 @@ header input {
     background: transparent;
     color: #c1c1c1;
 }
+
+#dividendosaaam {
+    cursor: pointer;
+    user-select: none;
+}

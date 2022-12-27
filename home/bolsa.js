@@ -15,6 +15,7 @@ function buscar() {
     const pltext = document.querySelector('#pltext');
     const lpatext = document.querySelector('#lpatext');
     const escolherrandom = document.querySelector('#escolherrandom');
+    const dividendosaaam = document.querySelector('#dividendosaaam');
     let acaoorfii = ""
     if (ticketbusca[4] == "1") { acaoorfii = "fiis" } else { acaoorfii = "acoes" }
     fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=' +
@@ -41,6 +42,8 @@ function buscar() {
         }
         media = value / 12
         ultimodividendo.innerHTML = "R$" + (media).toFixed(2)
+
+
         data.innerHTML = corpo[0].dataPagamento
         fetch('https://fintz.herokuapp.com/api/b3/' + acaoorfii + '/' + ticketbusca + "/preco").then(resposta => {
             return resposta.json()
@@ -109,4 +112,37 @@ function random() {
         ticketbusca.value = ativoaleatorio
 
     })
+}
+
+function aoano() {
+    if (dividendosaaam.innerHTML == 'Dividendos a.m') {
+
+        fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=' + ticketbusca.value + '&size=12&sort=dataCom,desc&tipo=Dividendo').then(resposta => {
+            return resposta.json()
+        }).then(function(corpo) {
+            let value = 0
+
+            for (let i = 0; i < corpo.length; i++) {
+                value = parseFloat(corpo[i].valor) + value
+            }
+            ultimodividendo.innerHTML = "R$" + (value).toFixed(2)
+            dividendosaaam.innerHTML = 'Dividendos a.a'
+        })
+    } else {
+        fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=' + ticketbusca.value + '&size=12&sort=dataCom,desc&tipo=Dividendo').then(resposta => {
+            return resposta.json()
+        }).then(function(corpo) {
+
+
+            let value = 0
+            let media
+
+            for (let i = 0; i < corpo.length; i++) {
+                value = parseFloat(corpo[i].valor) + value
+            }
+            media = value / 12
+            ultimodividendo.innerHTML = "R$" + (media).toFixed(2)
+            dividendosaaam.innerHTML = 'Dividendos a.m'
+        })
+    }
 }
