@@ -285,3 +285,8 @@ header input {
     margin-left: 2px;
     cursor: pointer;
 }
+
+#escolherrandom {
+    background: transparent;
+    color: #c1c1c1;
+}

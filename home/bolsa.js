@@ -14,6 +14,7 @@ function buscar() {
     const roetext = document.querySelector('#roetext');
     const pltext = document.querySelector('#pltext');
     const lpatext = document.querySelector('#lpatext');
+    const escolherrandom = document.querySelector('#escolherrandom');
     let acaoorfii = ""
     if (ticketbusca[4] == "1") { acaoorfii = "fiis" } else { acaoorfii = "acoes" }
     fetch('https://fintz.herokuapp.com/api/b3/proventos?ticker=' +
@@ -75,6 +76,15 @@ function buscar() {
                     vpatext.style.color = "#bd0000";
 
                 }
+                if ((corpo2.roe * 100).toFixed(2) >= 20) {
+                    roetext.style.color = "#007400";
+
+                }
+                if ((corpo2.roe * 100).toFixed(2) < 20) {
+                    roetext.style.color = "#bd0000";
+
+                }
+
 
                 if (corpo2.vpa === undefined) { vpatext.innerHTML = "FIIs" } else { vpatext.innerHTML = "   " + corpo2.vpa }
                 if (corpo2.vpa === undefined) { roetext.innerHTML = "FIIs" } else { roetext.innerHTML = "   " + (corpo2.roe * 100).toFixed(2) + "%" }
@@ -87,13 +97,16 @@ function buscar() {
 
 function random() {
     const randomValue = Math.floor(Math.random() * 2000);
-
-    console.log(fetch('http://fintz.herokuapp.com/api/b3/proventos?&size=5000').then(resposta => {
+    let urlacoesoufiis
+    if (escolherrandom.value == 'acoes') { urlacoesoufiis = 'https://fintz.herokuapp.com/api/b3/proventos?&size=5000&categoria=acao' }
+    if (escolherrandom.value == 'fii') { urlacoesoufiis = 'http://fintz.herokuapp.com/api/b3/proventos?&size=5000&categoria=fii' }
+    if (escolherrandom.value == '') { urlacoesoufiis = 'http://fintz.herokuapp.com/api/b3/proventos?&size=5000' }
+    fetch(urlacoesoufiis).then(resposta => {
         return resposta.json()
     }).then(function(corpo2) {
         const ticketbusca = document.querySelector('#ticketbusca');
         const ativoaleatorio = corpo2[randomValue].ticker
         ticketbusca.value = ativoaleatorio
-        console.log(ativoaleatorio)
-    }))
+
+    })
 }
