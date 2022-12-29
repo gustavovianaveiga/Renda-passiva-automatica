@@ -98,6 +98,7 @@ function buscar() {
     })
 }
 
+
 function random() {
     const randomValue = Math.floor(Math.random() * 2000);
     let urlacoesoufiis
@@ -112,7 +113,11 @@ function random() {
         ticketbusca.value = ativoaleatorio
 
     })
+    setTimeout(() => { buscar() }, 2111)
+
 }
+random()
+
 
 function aoano() {
     if (dividendosaaam.innerHTML == 'Dividendos a.m') {
